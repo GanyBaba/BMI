@@ -1,0 +1,6 @@
+---
+- hosts: webservers
+  tasks:
+    - name: test connection
+      win_feature:
+         name: web-server

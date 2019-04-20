@@ -1,0 +1,4 @@
+---
+# tasks file for domain-join
+
+- include: domain-join.yml

@@ -1,0 +1,25 @@
+- name: Create Groups
+  win_group:
+    name: newusers
+    description: This is a test group
+    state: present
+
+- name: create local user
+  win_user:
+    name: rahamath
+    password: Password123
+    state: present
+    groups:
+      - newusers
+
+#- name: Run script
+#  script: files/test.ps1
+#  register: script_result
+
+#-  name: reboot server
+#   win_reboot:
+#   when: "'CHANGED' in script_result.stdout"
+
+#- name: test run
+#  raw: ipconfig >> c:\temp\test.txt
+#  when: "'CHANGED' in script_result.stdout"

@@ -1,0 +1,14 @@
+---
+
+- name: change DNS settings
+  script: files/set-dns.ps1
+  register: dns_out
+
+- name: domain join
+  script: domain-join.ps1
+  register: join_out
+#  when: "'CHANGED' in join_out.stdout"
+
+#- name: Windows reboot
+- win_reboot:
+  when: "'CHANGED' in join_out.stdout"

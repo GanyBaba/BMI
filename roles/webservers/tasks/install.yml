@@ -1,0 +1,11 @@
+---
+
+- name: Install web servers
+  win_feature:
+    name: web-server
+    state: present
+
+- name: Install notepad ++
+  win_chocolatey:
+    name: notepadplusplus
+    state: present
